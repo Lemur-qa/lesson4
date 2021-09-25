@@ -7,6 +7,10 @@ import consoles.PS5;
 import consoles.XOneX;
 import engines.Engine12V;
 import engines.FSDEngine;
+import led.Blue;
+import led.Green;
+import led.Led;
+import led.Red;
 
 import java.util.ArrayList;
 
@@ -22,8 +26,12 @@ public class Main {
         Console ps5 = new PS5();
         Console xonex = new XOneX();
 
-        Lambo lambo = new Lambo(magic, engine12V, ps5);
-        Viper viper = new Viper(music, new FSDEngine(), xonex);
+        Led blue = new Blue();
+        Led red = new Red();
+        Led green = new Green();
+
+        Lambo lambo = new Lambo(magic, engine12V, ps5, blue);
+        Viper viper = new Viper(music, new FSDEngine(), xonex, red);
 
 
         ArrayList<Car> carList = new ArrayList<Car>();
@@ -34,6 +42,7 @@ public class Main {
             System.out.println(carList.get(i).checkSpeed());
             System.out.println(carList.get(i).checkBeep());
             System.out.println(carList.get(i).checkConsole());
+            System.out.println(carList.get(i).checkLights());
         }
     }
 }
